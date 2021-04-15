@@ -1,0 +1,19 @@
+<div>
+  <h1>Connexion : </h1>
+</div>
+<form>
+  <mat-form-field>
+    <mat-label>Selectionnez un utilisateur</mat-label>
+     <input type="text"
+           placeholder="Choisir un utilisateur"
+           aria-label="utilisateur"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto" />
+     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="updateMySelection($event)">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.pseudo">
+        {{option.pseudo}}
+      </mat-option>
+    </mat-autocomplete>  
+  </mat-form-field>
+</form>

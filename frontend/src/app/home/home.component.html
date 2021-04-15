@@ -1,0 +1,14 @@
+<suggestionsRecues [refresh]="refreshSignal"></suggestionsRecues>
+
+<mat-divider style="height: 3em;"></mat-divider>
+
+<suggestionsEmises [refresh]="refreshSignal"></suggestionsEmises>
+
+
+<button mat-mini-fab 
+		aria-label="Add a suggestion button" 
+		class="ajouter" 
+		(click)="openDialog()"
+		[disabled]="isOffline">
+	<mat-icon style="color: white">add</mat-icon>
+</button>

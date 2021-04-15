@@ -1,0 +1,49 @@
+<h1><span class="material-icons favicon">{{favicon}}</span>{{title}}</h1>
+
+<mat-card >
+	<mat-card-header class="title">
+		<mat-card-title>Non lues</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-progress-spinner [mode]="'indeterminate'" *ngIf="!finished">
+		</mat-progress-spinner>
+		<div fxLayout="row wrap" 
+		 	 fxLayout.xs="column wrap">
+			<suggestionRecue *ngFor='let s of suggestionsNonLues' 
+						[data]="s"
+						fxFlex.gt-xs="50%" 
+						[fxFlex.gt-md]="regularDistribution" 
+						class="s"
+						[isSuggLue]="false">
+			</suggestionRecue>
+			<span *ngIf="suggestionsNonLues.length == 0 && finished"> Aucune carte à afficher </span>
+		</div>
+	</mat-card-content>
+</mat-card>
+
+<div class="divider"></div>
+
+<mat-card>
+	<mat-card-header class="title">
+		<mat-card-title>Lues</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-progress-spinner [mode]="'indeterminate'" *ngIf="!finished">
+		</mat-progress-spinner>
+		<div fxLayout="row wrap" 
+		 	 fxLayout.xs="column wrap">
+			<suggestionRecue *ngFor='let s of suggestionsLues' 
+						[data]="s"
+						fxFlex.gt-xs="50%" 
+						[fxFlex.gt-md]="regularDistribution" 
+						class="s"
+						[isSuggLue]="true">
+			</suggestionRecue>
+			<span *ngIf="suggestionsLues.length == 0 && finished"> Aucune carte à afficher </span>
+		</div>
+	</mat-card-content>
+</mat-card>
+
+
+
+

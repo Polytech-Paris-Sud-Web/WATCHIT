@@ -1,0 +1,43 @@
+
+<mat-card  class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>{{data.name}}</mat-card-title>
+    <mat-card-subtitle>
+      {{data.updatedAt}} - 
+      <span><i>{{pseudo}}</i></span> - 
+      de type <i>{{categorie}}</i>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{data.commentaire}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="containerX">
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex
+               class="coloredContainerX box">
+            <div fxFlex class="centre buttonAction">
+                <button mat-button 
+                      [disabled]="isOffline" 
+                      (click)="updateSugg()">
+                <mat-icon class="suppr">done</mat-icon>
+                  <span *ngIf="isSuggLue">MARQUER COMME NON LU</span> 
+                  <span *ngIf="!isSuggLue">MARQUER COMME LU</span> 
+                </button>
+              </div>
+            <div fxFlex class="centre buttonAction">
+              <div class="flexbox">
+                <button mat-button [disabled]="isOffline" (click)="supprimer()">
+                  <mat-icon class="suppr">delete</mat-icon> SUPPRIMER
+                </button>
+                <span class="cursor" >
+                  <mat-icon (click)="dispMessageUI()" *ngIf="isOffline"> help</mat-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+  </mat-card-actions>
+</mat-card>

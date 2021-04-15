@@ -1,0 +1,30 @@
+
+<header (openSideNav)="drawer.toggle()"></header>
+
+<mat-drawer-container   class="container" 
+						autosize
+						[hasBackdrop]="true">
+	<mat-drawer #drawer 
+				class="sidenav" 
+				mode="push">
+
+				<mat-selection-list #button [multiple]="false">
+					<span *ngFor="let b of SideNavButton; let idx=index;">
+						<a  [routerLink]="SideNavUrl[idx]" 
+							routerLinkActive="active-link"
+							class="noUnderline"
+							(click)="drawer.toggle()">
+						<mat-list-option  [value]="SideNavButton[idx]">{{b}}</mat-list-option>
+						</a>
+					</span>
+				</mat-selection-list>
+	</mat-drawer>
+
+	<div class="sidenav-content">
+		<div id="router">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+
+</mat-drawer-container>
+

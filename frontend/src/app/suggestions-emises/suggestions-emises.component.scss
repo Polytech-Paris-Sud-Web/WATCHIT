@@ -1,0 +1,25 @@
+.h1, .mat-card-header{
+	margin-bottom: 1em;
+}
+
+.divider{
+	height: 1em;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+	stroke: #b50f84 !important;
+}
+
+.s{
+	padding: 0.5em;
+}
+
+.favicon{
+	margin-right: 0.5em;
+	vertical-align: middle;
+}
+
+
+.title{
+	color: #752371;
+}

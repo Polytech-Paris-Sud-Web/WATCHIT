@@ -1,0 +1,26 @@
+/* TESTS ISA*/
+/*:host{
+	color: red !important ;
+}*/
+
+
+#router{
+	margin: 1em 3em 1em 3em;
+}
+
+
+::ng-deep .mat-drawer-container{
+	min-height: 100%;
+}
+
+.sidenav-content {
+  height: 100%;
+}
+
+.sidenav {
+  padding: 20px;
+}
+
+.noUnderline{
+  text-decoration: none;
+}

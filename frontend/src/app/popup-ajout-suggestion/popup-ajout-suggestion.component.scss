@@ -1,0 +1,24 @@
+.actionButton{
+	margin-right: 0.5em;
+}
+
+.actions{
+	color: #752371;
+}
+
+
+.iconFace{
+	margin-left: 0.5em;
+	vertical-align: middle;
+	color: #7f337b;
+}
+
+.spread{
+	width: 100%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label, ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+ /*change color of underline when focused*/
+ color: #7f337b !important;
+}
+

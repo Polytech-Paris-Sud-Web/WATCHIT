@@ -1,0 +1,49 @@
+<h1><span class="material-icons favicon">group</span> Gestion des suivis</h1>
+
+<mat-card >
+	<mat-card-header class="title">
+		<mat-card-title>Liés</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-progress-spinner [mode]="'indeterminate'" *ngIf="!finishedFriend">
+		</mat-progress-spinner>
+		<div fxLayout="row wrap" 
+		 	 fxLayout.xs="column wrap">
+			<app-friend *ngFor='let f of getFriendValues()' 
+						[friend]="f"
+						fxFlex.gt-xs="50%" 
+						[fxFlex.gt-md]="regularDistribution" 
+						class="s"
+						(toggleFollow)="toggleFollow($event)">
+			</app-friend>
+			<span *ngIf="this.friends.size == 0 && finishedFriend"> Vous n'avez pas de liens avec les autres membres </span>
+		</div>
+	</mat-card-content>
+</mat-card>
+
+<div class="divider"></div>
+
+<mat-card>
+	<mat-card-header class="title">
+		<mat-card-title>Autres</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-progress-spinner [mode]="'indeterminate'" *ngIf="!(finishedFriend && finishedOthers)">
+		</mat-progress-spinner>
+		<div fxLayout="row wrap" 
+		 	 fxLayout.xs="column wrap">
+			<app-friend *ngFor='let f of getOthersValues()' 
+						[friend]="f"
+						fxFlex.gt-xs="50%" 
+						[fxFlex.gt-md]="regularDistribution" 
+						class="s"
+						(toggleFollow)="toggleFollow($event)">
+			</app-friend>
+			<span *ngIf="getOthersValues().length == 0 && (finishedFriend && finishedOthers)"> Il n'y a pas d'autres membres </span>
+		</div>
+	</mat-card-content>
+</mat-card>
+
+
+
+

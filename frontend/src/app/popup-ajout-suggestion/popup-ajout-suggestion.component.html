@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Ajouter une suggestion</h1>
+
+<form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+
+  <div mat-dialog-content>
+
+    <mat-form-field  appearance="fill" class="spread">
+      <mat-label>A qui s'adresse la suggestion ? </mat-label>
+      <mat-select required formControlName="destinataire">
+        <mat-option *ngFor="let f of listeAmi" [value]="f.id">{{f.pseudo}}</mat-option>
+        <mat-option [value]="id">A soi-même <span class="material-icons iconFace">face</span></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="spread">
+      <mat-label>Titre </mat-label>
+      <input matInput required color="#7f337b" formControlName="nom">
+    </mat-form-field>
+
+    <mat-form-field class="spread">
+      <mat-label>Type </mat-label>
+      <mat-select required formControlName="type">
+       <mat-option *ngFor="let s of suggestionType | enumToArray" [value]="s">{{s}}</mat-option> 
+     </mat-select>
+   </mat-form-field>
+
+
+   <mat-form-field class="spread">
+    <mat-label>Commentaires</mat-label>
+    <input matInput formControlName="commentaire" required>
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+
+  <button mat-button class="actions" (click)="closeDialog([])" type="button">
+  	<span class="material-icons actionButton">close</span>
+  	Annuler
+  </button>
+  <button mat-button  
+          cdkFocusInitial 
+          class="actions" 
+          type="submit"
+          [disabled]="!AddForm.valid">
+  	<span class="material-icons actionButton">check</span>
+  	Confirmer
+  </button>
+</div>
+
+
+</form>

@@ -1,0 +1,27 @@
+#logo{
+	width      : 150px; 
+	max-width  : 100%;
+	height     : auto;
+    display    : inline-block;
+    margin-top : 5px;
+    margin-left: 0px;
+}
+ 
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+  background: linear-gradient(#eaeaea, #f5f4f4) !important;
+  color: #b50f84;
+}
+
+
+#separator{
+	height: 70%;
+	margin: 0 1em 0 1em;
+}
+
+.person{
+  margin-right: 0.5em;
+}

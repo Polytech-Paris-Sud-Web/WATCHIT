@@ -1,0 +1,28 @@
+<p>
+  <mat-toolbar color="primary">
+
+    <button mat-icon-button 
+    class="example-icon" 
+    aria-label="Example icon-button with menu icon"
+    (click)="emitEventSideNav()"
+    [style.visibility]="!userConnected? 'hidden': 'visible'" >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!--  width="150px" height="53px"  -->
+  <a [routerLink]="'/'"><img id="logo" height="100%" alt="logoWatchIt" src="assets/icons/WatchIt.PNG" *ngIf="isNotLimitedScreenWidth"></a>
+  <span class="example-spacer"></span>
+
+  <span class="material-icons person" *ngIf="userConnected"> person</span>
+  <span *ngIf="userConnected">{{userConnected}}</span>
+  <mat-divider vertical id="separator" *ngIf="userConnected"></mat-divider>
+  <button mat-icon-button 
+  class="example-icon" 
+  aria-label="Example icon-button with share icon" 
+  (click)="logout()" 
+  *ngIf="userConnected"
+  [disabled]="isOffline">
+  <mat-icon>logout</mat-icon>
+</button>
+
+</mat-toolbar>
+</p>

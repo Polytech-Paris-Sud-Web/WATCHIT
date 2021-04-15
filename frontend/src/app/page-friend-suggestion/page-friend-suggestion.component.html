@@ -1,0 +1,8 @@
+<suggestionsFriend [refresh]="refreshSignal" [pseudo]="this.pseudo"></suggestionsFriend>
+<button mat-mini-fab 
+		aria-label="Add a suggestion button" 
+		class="ajouter" 
+		(click)="openDialog()"
+		[disabled]="isOffline">
+	<mat-icon style="color: white">add</mat-icon>
+</button>

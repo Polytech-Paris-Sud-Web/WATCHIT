@@ -1,0 +1,38 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>{{this.friend.user.pseudo}}</mat-card-title>
+    <mat-card-subtitle>{{formatTimeDate(this.friend.user.createdAt)}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h3 *ngIf="this.friend.followed; else elseBlock"><span class="material-icons favicon" >check_circle</span> Vous êtes suivi par {{this.friend.user.pseudo}} - <a [routerLink]="['/friendSuggestion', this.friend.user.pseudo]">Voir sa liste de suggestion</a></h3>
+    <ng-template #elseBlock>
+      <h3><span class="material-icons favicon" >highlight_off</span> Vous n'êtes pas suivi par {{this.friend.user.pseudo}}</h3>
+    </ng-template>
+    <h3 *ngIf="this.friend.follow; else elseBlock2"><span class="material-icons favicon" >check_circle</span> Vous suivez {{this.friend.user.pseudo}}</h3>
+    <ng-template #elseBlock2>
+      <h3><span class="material-icons favicon" >highlight_off</span> Vous ne suivez pas {{this.friend.user.pseudo}}</h3>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="containerX">
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex
+               class="coloredContainerX box">
+            <div fxFlex class="center">
+              <span *ngIf="this.friend.follow; else elseBlock1">
+                <button mat-button [disabled]="isOffline" (click)='onClick()'>
+                  <mat-icon class="suppr">highlight_off</mat-icon>
+                    Ne plus suivre
+                </button>
+              </span>
+              <ng-template #elseBlock1>
+                <button mat-button [disabled]="isOffline" (click)='onClick()'>
+                  <mat-icon class="suppr">done</mat-icon>
+                    Suivre
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+  </mat-card-actions>
+</mat-card>
